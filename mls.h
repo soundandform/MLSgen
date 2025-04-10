@@ -40,6 +40,19 @@ public:
     vector<bool> get_seq();
     void setBits(int n_bits);
     int size();
+	
+	struct Generator
+	{
+		bool  operator () ();
+		
+		vector <int>	taps;
+		vector <bool>	state;
+		int				length;
+		int				nbits;
+		int				idx			 = 0;
+	};
+	
+	Generator	start	();
 
 private:
     unordered_map<int, vector<int>> Taps;
